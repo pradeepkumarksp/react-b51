@@ -1,32 +1,20 @@
 
-const Hello = (props)=>{
+import React from 'react';
+import Note from './Note'
 
-  console.log(props)
+function App({ notes}){
+
+  console.log(notes)
   return(
     <div>
-      <p>
-        hello, yourname is { props.username} and your age is {props.age}.
-      </p>
-    </div>
-  )
-}
-/*
--this called component (function = component)
-*/
-
-function App(){
-  
-  const name1 = 'pradeep'
-  const name2 = 'srikanth'
-  const age1 = 28
-  const age2 = 27
-
-  return(
-    <div>
-    Hello world!
-
-    <Hello username = {name1} age={age1}/>
-    <Hello username = {name2} age={age2}/>
+    <h1>Notes</h1>
+    <ul>
+      {
+        notes.map(note =>
+        <Note key={ note.id} note = { note} />)
+      }
+    </ul>
+    
     </div>
   )
 }
